@@ -95,6 +95,7 @@ class Bing:
             request_url = 'https://www.bing.com/images/async?q=' + urllib.parse.quote_plus(self.query) \
                           + '&first=' + str(self.page_counter) + '&count=' + str(self.limit) \
                           + '&adlt=' + self.adult + '&qft=' + ('' if self.filter is None else self.get_filter(self.filter))
+            print(request_url)
             request = urllib.request.Request(request_url, None, headers=self.headers)
             response = urllib.request.urlopen(request)
             html = response.read().decode('utf8')
